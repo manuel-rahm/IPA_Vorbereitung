@@ -19,7 +19,7 @@
                 </div><a href="decommission.php" style="color: rgb(0,0,0);">Decommission</a>
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" role="presentation"></li>
-                    <p class="greeting" style="margin: auto; margin-right: 20px;">Greetings <?php echo  $_SESSION['username']?></p>
+                    <p class="greeting" style="margin: auto; margin-right: 20px;">Logged in as: <?php echo  $_SESSION['username']?></p>
                 </ul><a href="logout.php"><button class="btn btn-primary border rounded border-dark" type="button" style="background-color: rgb(0,0,0);">Log out</button></a></div>
         </div>
     </nav>
