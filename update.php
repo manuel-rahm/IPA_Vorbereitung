@@ -12,7 +12,9 @@ if (!isset($_SESSION['username'])) {
 <head>
 <title>Cilag IT Tasks</title>
 </head>
-    <?php include("header.php"); ?>
+    <?php include("header.php"); 
+		  include("data_query.php")
+	?>
 	<h2 style="text-align:center; margin-top:20px;">Enter the specific task with the RITM number:</h2>
 	<form action="edit.php" method="POST">
 		<tbody>
