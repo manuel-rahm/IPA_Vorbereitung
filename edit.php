@@ -60,9 +60,12 @@ if (!isset($_SESSION['username'])) {
                         echo '<td><select name="inputResponsible"><optgroup label="Person"><option value="2" selected>kwinzel1</option><option value="3">nwindler</option><option value="1">mrahm</option></optgroup></select></td>';
                     }
                         elseif ($row['RESPONSIBLE'] == "mrahm") {
-                            
+                            echo '<td><select name="inputResponsible"><optgroup label="Person"><option value="2">kwinzel1</option><option value="3">nwindler</option><option value="1" selected>mrahm</option></optgroup></select></td>';
                         }
-                    echo '<td style="width: 201px;">'.$row['LOCATION'].'</td>';
+                        elseif ($row['RESPONSIBLE'] == "nwindler") {
+                            echo '<td><select name="inputResponsible"><optgroup label="Person"><option value="2">kwinzel1</option><option value="3" selected>nwindler</option><option value="1">mrahm</option></optgroup></select></td>';
+                        }
+                    echo '<td><input style="widht: 201px;"type="text" name="inputLocation" value="'. $row['LOCATION'] .'"></td>';
                     
                     echo '</tr>';
                     echo '</form>';
