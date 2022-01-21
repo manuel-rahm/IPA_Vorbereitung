@@ -27,6 +27,7 @@ if (!isset($_SESSION['username'])) {
                     <th>Description</th>
                     <th>Responsible</th>
                     <th style="width: 201px;">Location</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -49,14 +50,11 @@ if (!isset($_SESSION['username'])) {
                         echo '<td>No</td>';
                     }
                     echo '<td>'.$row['REQUESTER'].'</td>';
-                    if ($row['FLD_STATUS'] == "WIP"){
-                        echo '<form action="update.php" method="POST"><td><select name="updatestatus"><optgroup label="Status"><option value="1" selected="selected">WIP</option><option value="2">Pending</option><option value="3">Closed</option><option value="4">Canceled</option></optgroup></select></td></form>';
-                    } elseif ($row['FLD_STATUS'] == "Pending") {
-                        echo '<form action="update.php" method="POST"><td><select name="updatestatus"><optgroup label="Status"><option value="1">WIP</option><option value="2" selected="selected">Pending</option><option value="3">Closed</option><option value="4">Canceled</option></optgroup></select></td></form>';
-                    } 
+                    echo '<td>'.$row['FLD_STATUS'].'</td>';
                     echo '<td>'.$row['FLD_DESCRIPTION'].'</td>';
                     echo '<td>'.$row['RESPONSIBLE'].'</td>';
                     echo '<td style="width: 201px;">'.$row['LOCATION'].'</td>';
+                    echo '<td><a href="edit.php?compareRITM='.$row['RITMNR'].'">Edit</a></td>';
                     echo '</tr>';
                 }
                 }

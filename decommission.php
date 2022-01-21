@@ -25,6 +25,7 @@ if (!isset($_SESSION['username'])) {
                     <th>Task Requester</th>
                     <th>Task Status</th>
                     <th>Responsible</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -45,12 +46,9 @@ if (!isset($_SESSION['username'])) {
                         echo '<td>No</td>';
                     }
                     echo '<td>'.$row['REQUESTER'].'</td>';
-                    if ($row['FLD_STATUS'] == "WIP"){
-                        echo '<form action="update.php" method="POST"><td><select name="updatestatus"><optgroup label="Status"><option value="1" selected="selected">WIP</option><option value="2">Pending</option><option value="3">Closed</option><option value="4">Canceled</option></optgroup></select></td></form>';
-                    } elseif ($row['FLD_STATUS'] == "Pending") {
-                        echo '<form action="update.php" method="POST"><td><select name="updatestatus"><optgroup label="Status"><option value="1">WIP</option><option value="2" selected="selected">Pending</option><option value="3">Closed</option><option value="4">Canceled</option></optgroup></select></td></form>';
-                    } 
+                    echo '<td>'.$row['FLD_STATUS'].'</td>';
                     echo '<td>'.$row['RESPONSIBLE'].'</td>';
+                    echo '<td><a href="edit.php?compareRITM='.$row['RITMNR'].'">Edit</a></td>';
                     echo '</tr>';
                 }
                 } 
@@ -73,7 +71,7 @@ if (!isset($_SESSION['username'])) {
     </div>
     <div class="d-xl-flex justify-content-xl-end"><button class="btn btn-primary border rounded border-dark d-xl-flex"
             type="submit" style="margin: 20px;background-color: rgb(0,0,0);color: rgb(255,255,255);font-weight: bold;">Submit</button>
-            <a href="update.php" style="text-decoration: none;"><button id="update_button" class="btn btn-primary border rounded border-dark d-xl-flex" type="button" style="margin: 20px;background-color: rgb(0,0,0);color: rgb(255,255,255);font-weight: bold;">Edit</button></a></div>
+    </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>

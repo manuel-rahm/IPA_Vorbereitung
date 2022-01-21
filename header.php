@@ -17,7 +17,6 @@
                     style="width: 139px;height: 40px;padding: 8px 18px;color: rgb(0,0,0);"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" style="color: rgb(0,0,0);">Tasks</a>
                     <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="index.php">Tasks - Open</a><a class="dropdown-item" role="presentation" href="tasks_closed.php">Tasks - Closed</a></div>
                 </div><a href="decommission.php" style="color: rgb(0,0,0);">Decommission</a>
-                <a href="update.php" style="color: rgb(0,0,0); margin-left: 40px;">Edit Task</a>
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" role="presentation"></li>
                     <p class="greeting" style="margin: auto; margin-right: 20px;">Logged in as: <?php echo  $_SESSION['username']?></p>
