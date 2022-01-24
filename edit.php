@@ -14,7 +14,6 @@ if (!isset($_SESSION['username'])) {
 </head>
     <?php include("header.php"); ?>
 	<div class="table-responsive">
-        <form action="update_row.php">
         <table class="table">
             <thead>
                 <tr style="background-color: #b5dbff;">
@@ -68,7 +67,6 @@ if (!isset($_SESSION['username'])) {
                     echo '<td><input type="text" name="inputLocation" value="'. $row['LOCATION'] .'"></td>';
                     
                     echo '</tr>';
-                    echo '</form>';
                 }
                 }
                 }
@@ -79,7 +77,7 @@ if (!isset($_SESSION['username'])) {
     </div>
     <div class="d-xl-flex justify-content-xl-end"><button class="btn btn-primary border rounded border-dark d-xl-flex"
             type="submit" style="margin: 0 auto; margin-top: 20px; background-color: rgb(0,0,0);color: rgb(255,255,255);font-weight: bold;">Submit</button>
-          </div>
+            </form></div>
     </form>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
