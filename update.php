@@ -29,35 +29,39 @@ if($_POST['inputTask'] == NULL && $_POST['inputRITM'] == NULL) {
         $location = [
         'loc' => $_POST['inputLocation'],
         'tasknr' => $_POST['inputTask'],
-        ];
-                
-        
-                $sql1 = "UPDATE tblci
+        ];     
+
+                $insertci = 
+
+                $updateci = "UPDATE tblci
                 SET fldCI = (:ci) WHERE NOT EXISTS (SELECT 1 FROM tblci AS b WHERE b.fldCI = (:ci))";
                 $stmt1 = $connection->prepare($sql1);
 
-                $sql2 = "UPDATE tblrequester
+                $updaterequester = "UPDATE tblrequester
                 SET fldRequester = (:requester) WHERE NOT EXISTS (SELECT 1 FROM tblrequester AS b WHERE b.fldRequester = (:requester))";
                 $stmt2 = $connection->prepare($sql2);
                 
-                $sql3 = "UPDATE tbllocation
+                $updatelocation = "UPDATE tbllocation
                 SET fldLocation = (:loc) WHERE NOT EXISTS (SELECT 1 FROM tbllocation AS b WHERE b.fldLocation = (:loc))";
                 $stmt3 = $connection->prepare($sql3);
 
-                $sql = "UPDATE tbltasks SET fldTaskNr = (:tasknr), fldRITMNr = (:ritmnr), fldCHGNr = (:chgnr), fkGxP = (:gxp), fkStatus = (:stat), fldDescription = (:descr), fkResponsible = (:responsible)
+                $updatedata = "UPDATE tbltasks SET fldTaskNr = (:tasknr), fldRITMNr = (:ritmnr), fldCHGNr = (:chgnr), fkGxP = (:gxp), fkStatus = (:stat), fldDescription = (:descr), fkResponsible = (:responsible)
                 WHERE fldTaskNr = (:tasknr)";
                 $stmt = $connection->prepare($sql);
 
-        if ($stmt1->execute($ci) && $stmt2->execute($requester) && $stmt3->execute($location) && $stmt->execute($data)){
-                $sql4 = "UPDATE tbltasks SET fkCI = (SELECT pkCI FROM tblCI AS b WHERE b.fldCI = (:ci)) WHERE fldTaskNr = (:tasknr)";
+                $updatefkci = "UPDATE tbltasks SET fkCI = (SELECT pkCI FROM tblCI AS b WHERE b.fldCI = (:ci)) WHERE fldTaskNr = (:tasknr)";
                 $stmt4 = $connection->prepare($sql4);
                 $stmt4->execute($ci);
-                $sql5 = "UPDATE tbltasks SET fkRequester = (SELECT pkRequester FROM tblrequester AS b WHERE b.fldRequester = (:requester)) WHERE fldTaskNr = (:tasknr)";
+
+                $updatefkrequester = "UPDATE tbltasks SET fkRequester = (SELECT pkRequester FROM tblrequester AS b WHERE b.fldRequester = (:requester)) WHERE fldTaskNr = (:tasknr)";
                 $stmt5 = $connection->prepare($sql5);
                 $stmt5->execute($requester);
-                $sql6 = "UPDATE tbltasks SET fkLocation = (SELECT pkLocation FROM tbllocation AS b WHERE b.fldLocation = (:loc)) WHERE fldTaskNr = (:tasknr)";
+
+                $updatefklocation = "UPDATE tbltasks SET fkLocation = (SELECT pkLocation FROM tbllocation AS b WHERE b.fldLocation = (:loc)) WHERE fldTaskNr = (:tasknr)";
                 $stmt6 = $connection->prepare($sql6);
                 $stmt6->execute($location);
+
+                if ($stmt1->execute($ci) && $stmt2->execute($requester) ){
                 echo '<p class="success">New record created successfully!</p><style>p {font-weight:bold; font-size:20px;}</style>';
                 echo '<script type="text/javascript">setTimeout(function () {
                         window.location.href = "index.php";}, 2000);</script>';
