@@ -73,7 +73,6 @@ if (!isset($_SESSION['username'])) {
                 }
                 }
                 ?>
-            
             </tbody>
         </table>
         </form>
@@ -81,7 +80,6 @@ if (!isset($_SESSION['username'])) {
     <div class="d-xl-flex justify-content-xl-end"><button class="btn btn-primary border rounded border-dark d-xl-flex"
             type="submit" style="margin: 0 auto; margin-top: 20px; background-color: rgb(0,0,0);color: rgb(255,255,255);font-weight: bold;">Submit</button>
           </div>
-
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
