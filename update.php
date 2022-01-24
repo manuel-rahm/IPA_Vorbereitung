@@ -46,7 +46,7 @@ if($_POST['inputTask'] == NULL && $_POST['inputRITM'] == NULL) {
                 $stmt = $connection->prepare($sql);
 
         if ($stmt1->execute($ci) && $stmt2->execute($requester) && $stmt3->execute($location) && $stmt->execute($data)){
-                $sql4 = "UPDATE tbltasks SET fkCI = (SELECT pkCI FROM tblCI AS b WHERE b.fldCI = (:ci)) WHERE pkTasks = LAST_INSERT_ID()";
+                $sql4 = "UPDATE tbltasks SET fkCI = (SELECT pkCI FROM tblCI AS b WHERE b.fldCI = (:ci)) WHERE pkTasks = (:tasknr)";
                 $stmt4 = $connection->prepare($sql4);
                 $stmt4->execute($ci);
                 $sql5 = "UPDATE tbltasks SET fkRequester = (SELECT pkRequester FROM tblrequester AS b WHERE b.fldRequester = (:requester)) WHERE pkTasks = LAST_INSERT_ID()";
