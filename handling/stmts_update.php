@@ -37,10 +37,6 @@ $data = [
                 SELECT (:loc) WHERE NOT EXISTS (SELECT 1 FROM tbllocation AS b WHERE b.fldLocation = (:loc))";
                 $stmtinsertlocation = $connection->prepare($insertlocation);
 
-                $insertdata = "INSERT INTO tbltasks (fldTaskNr, fldRITMNr, fldCHGNr, fkGxP, fkStatus, fldDescription, fkResponsible)
-                VALUES (:tasknr, :ritmnr, :chgnr, :gxp, :stat, :descr, :responsible) WHERE fldTaskNr, fldRITMNr, fldCHGNr, fkGxP, fkStatus, fldDescription, fkResponsible NOT EXISTS";
-                $stmtinsertdata = $connection->prepare($insertdata);
-
 
                 $updateci = "UPDATE tblci
                 SET fldCI = (:ci) WHERE NOT EXISTS (SELECT 1 FROM tblci AS b WHERE b.fldCI = (:ci))";
@@ -68,6 +64,4 @@ $data = [
                 $updatefklocation = "UPDATE tbltasks SET fkLocation = (SELECT pkLocation FROM tbllocation AS b WHERE b.fldLocation = (:loc)) WHERE fldTaskNr = (:tasknr)";
                 $stmtupdatefklocation = $connection->prepare($updatefklocation);
 
-                $updatetask = "UPDATE tbltasks SET fldTaskNr = (:tasknr) WHERE fldRITMNr = (:ritmnr)";
-                $stmtupdatetask = $connection->prepare($updatetask);
 ?>
