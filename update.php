@@ -31,7 +31,23 @@ if($_POST['inputTask'] == NULL && $_POST['inputRITM'] == NULL) {
         'tasknr' => $_POST['inputTask'],
         ];     
 
-                $insertci = 
+                $insertci = "INSERT INTO tblci (fldCI)
+                SELECT (:ci) WHERE NOT EXISTS (SELECT 1 FROM tblci AS b WHERE b.fldCI = (:ci))";
+                $stmtinsertci = $connection->prepare($insertci);
+
+                $insertrequester = "INSERT INTO tblrequester (fldRequester)
+                SELECT (:requester) WHERE NOT EXISTS (SELECT 1 FROM tblrequester AS b WHERE b.fldRequester = (:requester))";
+                $stmtinsertrequester = $connection->prepare($insertrequester);
+
+                $insertlocation = "INSERT INTO tbllocation (fldLocation)
+                SELECT (:loc) WHERE NOT EXISTS (SELECT 1 FROM tbllocation AS b WHERE b.fldLocation = (:loc))";
+                $stmtinsertlocation = $connection->prepare($insertlocation);
+
+                $insertdata = "INSERT INTO tbltasks (fldTaskNr, fldRITMNr, fldCHGNr, fkGxP, fkStatus, fldDescription, fkResponsible)
+                VALUES (:tasknr, :ritmnr, :chgnr, :gxp, :stat, :descr, :responsible) WHERE fldTaskNr, fldRITMNr, fldCHGNr, fkGxP, fkStatus, fldDescription, fkResponsible NOT EXISTS";
+                $stmtinsertdata = $connection->prepare($insertdata);
+
+
 
                 $updateci = "UPDATE tblci
                 SET fldCI = (:ci) WHERE NOT EXISTS (SELECT 1 FROM tblci AS b WHERE b.fldCI = (:ci))";
