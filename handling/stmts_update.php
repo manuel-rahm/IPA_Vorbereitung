@@ -50,7 +50,7 @@ $data = [
                 SET fldLocation = (:loc) WHERE NOT EXISTS (SELECT 1 FROM tbllocation AS b WHERE b.fldLocation = (:loc))";
                 $stmtupdatelocation = $connection->prepare($updatelocation);
                 
-                $updatedata = "UPDATE tbltasks SET fldTaskNr = (:tasknr), fldRITMNr = (:ritmnr), fldCHGNr = (:chgnr), fkGxP = (:gxp), fkStatus = (:stat), fldDescription = (:descr), fkResponsible = (:responsible)
+                $updatedata = "UPDATE tbltasks SET fldRITMNr = (:ritmnr), fldCHGNr = (:chgnr), fkGxP = (:gxp), fkStatus = (:stat), fldDescription = (:descr), fkResponsible = (:responsible)
                 WHERE fldTaskNr = (:tasknr)";
                 $stmtupdatedata = $connection->prepare($updatedata);
                 
@@ -63,5 +63,8 @@ $data = [
 
                 $updatefklocation = "UPDATE tbltasks SET fkLocation = (SELECT pkLocation FROM tbllocation AS b WHERE b.fldLocation = (:loc)) WHERE fldTaskNr = (:tasknr)";
                 $stmtupdatefklocation = $connection->prepare($updatefklocation);
+
+                $updatetask = "UPDATE tbltasks SET fldTaskNr = (:tasknr) WHERE fldRITMNr = (:ritmnr)";
+                $stmtupdatetask = $connection->prepare($updatetask);
 
 ?>

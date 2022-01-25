@@ -11,6 +11,7 @@ if($_POST['inputTask'] == NULL && $_POST['inputRITM'] == NULL) {
 } else {
         include("handling/stmts_update.php");
                 if ($stmtinsertci->execute($ci) || $stmtinsertrequester->execute($requester) ||  $stmtinsertlocation->execute($location)){
+                        $stmtupdatetask->execute($task);
                         $stmtupdateci->execute($ci);
                         $stmtupdaterequester->execute($requester);
                         $stmtupdatelocation->execute($location);
