@@ -48,29 +48,25 @@ if($_POST['inputTask'] == NULL && $_POST['inputRITM'] == NULL) {
                 $stmtinsertdata = $connection->prepare($insertdata);
 
 
-
+                $updateci = "UPDATE tblci
+                SET fldCI = (:ci) WHERE NOT EXISTS (SELECT 1 FROM tblci AS b WHERE b.fldCI = (:ci))";
+                $stmtupdateci = $connection->prepare($updateci);
                 
-                
-
                 $updaterequester = "UPDATE tblrequester
                 SET fldRequester = (:requester) WHERE NOT EXISTS (SELECT 1 FROM tblrequester AS b WHERE b.fldRequester = (:requester))";
                 $stmtupdaterequester = $connection->prepare($updaterequester);
-                
                 
                 $updatelocation = "UPDATE tbllocation
                 SET fldLocation = (:loc) WHERE NOT EXISTS (SELECT 1 FROM tbllocation AS b WHERE b.fldLocation = (:loc))";
                 $stmtupdatelocation = $connection->prepare($updatelocation);
                 
-
                 $updatedata = "UPDATE tbltasks SET fldTaskNr = (:tasknr), fldRITMNr = (:ritmnr), fldCHGNr = (:chgnr), fkGxP = (:gxp), fkStatus = (:stat), fldDescription = (:descr), fkResponsible = (:responsible)
                 WHERE fldTaskNr = (:tasknr)";
                 $stmtupdatedata = $connection->prepare($updatedata);
                 
-
                 $updatefkci = "UPDATE tbltasks SET fkCI = (SELECT pkCI FROM tblCI AS b WHERE b.fldCI = (:ci)) WHERE fldTaskNr = (:tasknr)";
                 $stmtupdatefkci = $connection->prepare($updatefkci);
                 
-
                 $updatefkrequester = "UPDATE tbltasks SET fkRequester = (SELECT pkRequester FROM tblrequester AS b WHERE b.fldRequester = (:requester)) WHERE fldTaskNr = (:tasknr)";
                 $stmtupdatefkrequester = $connection->prepare($updatefkrequester);
                 $stmtupdatefkrequester->execute($requester);
@@ -78,11 +74,7 @@ if($_POST['inputTask'] == NULL && $_POST['inputRITM'] == NULL) {
                 $updatefklocation = "UPDATE tbltasks SET fkLocation = (SELECT pkLocation FROM tbllocation AS b WHERE b.fldLocation = (:loc)) WHERE fldTaskNr = (:tasknr)";
                 $stmtupdatefklocation = $connection->prepare($updatefklocation);
                 
-
                 if ($stmtinsertci->execute($ci) && $stmtinsertrequester->execute($requester) &&  $stmtinsertlocation->execute($location) && $stmtinsertdata->execute($data)){
-                        $updateci = "UPDATE tblci
-                                SET fldCI = (:ci) WHERE NOT EXISTS (SELECT 1 FROM tblci AS b WHERE b.fldCI = (:ci))";
-                        $stmtupdateci = $connection->prepare($updateci);
                         $stmtupdateci->execute($ci);
                         $stmtupdaterequester->execute($requester);
                         $stmtupdatelocation->execute($location);
