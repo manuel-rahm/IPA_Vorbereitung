@@ -15,7 +15,7 @@ if (!isset($_SESSION['username'])) {
 </head>
 <?php include("header.php"); ?>
 <div class="table-responsive">
-    <table class="table">
+    <table id="indextable" class="table">
         <thead>
             <tr style="background-color: #b5dbff;">
                 <th>Task Nr.</th>
@@ -76,5 +76,46 @@ if (!isset($_SESSION['username'])) {
 </form>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/js/tablefilter/dist/tablefilter/tablefilter.js"></script>
+<script>
+     var tfConfig = {
+    base_path: 'assets/js/tablefilter/dist/tablefilter',
+    alternate_rows: true,
+    rows_counter: {
+        text: 'Tasks: '
+    },
+    btn_reset: {
+        text: 'Clear'
+    },
+    loader: true,
+    no_results_message: true,
+
+    // columns data types
+    col_types: [
+        'string',
+        'string',
+        'string',
+        'string',
+        'boolean',
+        'string',
+        'string',
+        'string',
+        'string',
+        'string',
+    ],
+
+    // Sort extension: in this example the column data types are provided by the
+    // 'col_types' property. The sort extension also has a 'types' property
+    // defining the columns data type for column sorting. If the 'types'
+    // property is not defined, the sorting extension will fallback to
+    // the 'col_types' definitions.
+    extensions: [{ name: 'sort' }]
+};
+var tf = new TableFilter('indextable', tfConfig);
+tf.init();
+</script>
+<style>.helpCont {
+    display: none;
+}</style>
 </body>
 </html>
