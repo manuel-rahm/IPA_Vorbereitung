@@ -9,15 +9,15 @@ if($_POST['inputTask'] == NULL && $_POST['inputRITM'] == NULL) {
         echo '<script type="text/javascript">setTimeout(function () {
         window.location.href = "index.php";}, 2500);</script>';
 } else {
-        include("handling/stmts.php");
+        include("handling/stmts_update.php");
                 if ($stmtinsertci->execute($ci) || $stmtinsertrequester->execute($requester) ||  $stmtinsertlocation->execute($location) || $stmtinsertdata->execute($data)){
-                        $stmtupdatetask->execute($task);
                         $stmtupdateci->execute($ci);
                         $stmtupdaterequester->execute($requester);
                         $stmtupdatelocation->execute($location);
                         $stmtupdatedata->execute($data);
                         $stmtupdatefkci->execute($ci);
                         $stmtupdatefklocation->execute($location);
+                        $stmtupdatetask->execute($task);
                 echo '<p class="success">New record created successfully!</p><style>p {font-weight:bold; font-size:20px;}</style>';
                 echo '<script type="text/javascript">setTimeout(function () {
                         window.location.href = "index.php";}, 2000);</script>';
