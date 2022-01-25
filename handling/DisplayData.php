@@ -1,11 +1,9 @@
 <?php
 class DisplayData {
     protected $name;
-
     function __construct($name = "Hans"){
         $this->name = $name;
     }
-
     public static function displayTask ($connection, $data){
         foreach ($connection->query($data) as $row) {
             if ($row['FLD_STATUS'] == "WIP" || $row['FLD_STATUS'] == "Pending") {
@@ -52,8 +50,8 @@ class DisplayData {
             echo '<td>'.$row['RESPONSIBLE'].'</td>';
             echo '<td><a href="edit.php?compareRITM='.$row['RITMNR'].'">Edit</a></td>';
             echo '</tr>';
-        }
-        } 
+                }
+            } 
         }
     }
     public static function displayClosed ($connection, $data){
@@ -76,7 +74,7 @@ class DisplayData {
             echo '<td>'.$row['RESPONSIBLE'].'</td>';
             echo '<td style="width: 201px;">'.$row['LOCATION'].'</td>';
             echo '</tr>';
-        }
+            }
         } 
     }
     public static function displayEdit ($connection, $data){
@@ -115,8 +113,8 @@ class DisplayData {
             echo '<td><input type="text" name="inputLocation" value="'. $row['LOCATION'] .'"></td>';
             
             echo '</tr>';
-        }
-        }
+                }
+            }
         }
     }
 }

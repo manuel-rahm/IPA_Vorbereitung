@@ -1,4 +1,4 @@
-<?php 
+<?php
 $data = "SELECT tbltasks.fldTaskNr AS 'TASK_NR'
                     ,tbltasks.fldRITMNr AS 'RITMNR'
                     ,tbltasks.fldCHGNr AS 'CHGNR'

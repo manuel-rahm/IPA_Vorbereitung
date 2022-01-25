@@ -27,8 +27,6 @@ if($_POST['inputTask'] == NULL && $_POST['inputRITM'] == NULL) {
         $location = [
         'loc' => "78.03.18",
         ];
-                
-        
                 $sql1 = "INSERT INTO tblci (fldCI)
                 SELECT (:ci) WHERE NOT EXISTS (SELECT 1 FROM tblci AS b WHERE b.fldCI = (:ci))";
                 $stmt1 = $connection->prepare($sql1);

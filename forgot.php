@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-
 <body>
     <div class="login-clean">
         <form action="update_pw.php" method="post">
@@ -21,10 +20,10 @@
             </div>
             <div class="form-group"><input class="form-control" type="username" name="up_username" placeholder="Username" autofocus=""></div>
             <div class="form-group"><input class="form-control" type="password" name="new_password" placeholder="New Password"></div>
-            <div class="form-group"><button class="btn btn-primary btn-block" type="submit" style="background-color: rgb(0,0,0);" value="update_pw">Update</button></div></form>
+            <div class="form-group"><button class="btn btn-primary btn-block" type="submit" style="background-color: rgb(0,0,0);" value="update_pw">Update</button></div>
+        </form>
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
-
 </html>

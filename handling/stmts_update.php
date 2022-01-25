@@ -24,7 +24,6 @@ $data = [
         'tasknr' => $_POST['inputTask'],
         'ritmnr' => $_POST['inputRITM'],
         ];
-
                 $insertci = "INSERT INTO tblci (fldCI)
                 SELECT (:ci) WHERE NOT EXISTS (SELECT 1 FROM tblci AS b WHERE b.fldCI = (:ci))";
                 $stmtinsertci = $connection->prepare($insertci);

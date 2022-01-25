@@ -26,8 +26,5 @@ if($_POST['inputTask'] == NULL && $_POST['inputRITM'] == NULL) {
                 echo '<script type="text/javascript">setTimeout(function () {
                        window.location.href = "index.php";}, 2000);</script>';
         }
-
-        
 } 
-
 ?>

@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-
 <body>
     <div class="login-clean">
         <form action="authenticate.php" method="post">
