@@ -11,7 +11,7 @@ if (!isset($_SESSION['username'])) {
 }
 ?>
 <head>
-<title>Decomission</title>
+<title>Decommission</title>
 </head>
     <?php include("header.php"); ?>
     <div class="table-responsive">
