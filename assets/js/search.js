@@ -1,10 +1,8 @@
 (function() {
 	'use strict';
-
 var TableFilter = (function() {
  var Arr = Array.prototype;
 		var input;
-  
 		function onInputEvent(e) {
 			input = e.target;
 			var table1 = document.getElementsByClassName(input.getAttribute('data-table'));
@@ -14,7 +12,6 @@ var TableFilter = (function() {
 				});
 			});
 		}
-
 		function filter(row) {
 			var text = row.textContent.toLowerCase();
        //console.log(text);
@@ -22,7 +19,6 @@ var TableFilter = (function() {
       //console.log(val);
 			row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
 		}
-
 		return {
 			init: function() {
 				var inputs = document.getElementsByClassName('table-filter');
@@ -31,9 +27,7 @@ var TableFilter = (function() {
 				});
 			}
 		};
- 
 	})();
-  
  TableFilter.init(); 
 })();
 

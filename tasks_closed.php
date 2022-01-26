@@ -18,7 +18,7 @@ if (!isset($_SESSION['username'])) {
     <input style ="float: right; margin:15px 10px;" type="text" class="table-filter" data-table="order-table" placeholder="Search"/>
     </div>
     <div class="table-responsive">
-        <table style="width:100%;"class="sortable-theme-minimal" id="closedtable" class="order-table table" class="table" data-sortable>
+        <table style="width:100%;"class="sortable-theme-minimal order-table table" id="closedtable" data-sortable>
             <thead>
                 <tr style="background-color: #b5dbff;">
                     <th>Task Nr.</th>
