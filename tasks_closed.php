@@ -18,7 +18,7 @@ if (!isset($_SESSION['username'])) {
     <input style ="float: right; margin:15px 10px;" type="text" class="table-filter" data-table="order-table" placeholder="Search"/>
     </div>
     <div class="table-responsive">
-        <table id="closedtable" class="order-table table" class="table">
+        <table style="width:100%;"class="sortable-theme-minimal" id="closedtable" class="order-table table" class="table" data-sortable>
             <thead>
                 <tr style="background-color: #b5dbff;">
                     <th>Task Nr.</th>
@@ -45,5 +45,7 @@ if (!isset($_SESSION['username'])) {
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/search.js"></script>
+    <link rel="stylesheet" href="assets/sortable/css/sortable-theme-minimal.css" />
+    <script src="assets/sortable/js/sortable.min.js"></script>
 </body>
 </html>
