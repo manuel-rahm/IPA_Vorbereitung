@@ -14,7 +14,9 @@ if (!isset($_SESSION['username'])) {
 <title>Cilag IT Tasks closed</title>
 </head>
     <?php include("header.php"); ?>
-    <input style ="float:right;" type="text" class="table-filter" data-table="order-table" placeholder="Search"/>
+    <div style="background-color: #b5dbff; height:60px;">
+    <input style ="float: right; margin:15px 10px;" type="text" class="table-filter" data-table="order-table" placeholder="Search"/>
+    </div>
     <div class="table-responsive">
         <table id="closedtable" class="order-table table" class="table">
             <thead>

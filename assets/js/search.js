@@ -36,3 +36,5 @@ var TableFilter = (function() {
   
  TableFilter.init(); 
 })();
+
+
