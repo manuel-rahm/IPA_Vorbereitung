@@ -28,6 +28,7 @@ if (!isset($_SESSION['username'])) {
         <li class="text">The CI must be entered in captial letters</li></br>
         <li class="text">First letter of each name of a task requester in capitals:</br> <b>R</b>afael <b>B</b>eyeler</li></br>
         <li class="text">Keep the description as short as possible</li></br>
+        <li class="text">Under "Tasks - Closed", you can search for specific values and sort the table by clicking on a table title</li></br>
         <li class="text">You can find an example of how a task should look like below:</li></br>
     </ul>
     <img id="exampletask" src="assets/img/example_task.jpg">
@@ -52,6 +53,9 @@ font-weight: bold;
     display: block;
     margin: 0 auto;
     border:3px solid black;
+}
+b {
+    color: red;
 }
 </style>
 </body>

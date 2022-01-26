@@ -14,9 +14,6 @@ if (!isset($_SESSION['username'])) {
 <title>Cilag IT Tasks closed</title>
 </head>
     <?php include("header.php"); ?>
-    <div style="background-color: #b5dbff; height:60px;">
-    <input style ="float: right; margin:15px 10px;" type="text" class="table-filter" data-table="order-table" placeholder="Search"/>
-    </div>
     <div class="table-responsive">
         <table style="width:100%;"class="sortable-theme-minimal order-table table" id="closedtable" data-sortable>
             <thead>
@@ -40,6 +37,9 @@ if (!isset($_SESSION['username'])) {
                     ?>
             </tbody>
         </table>
+        <div style="background-color: white; height:60px;">
+    <input style ="float: right; margin:15px 10px; border: 1px solid black; border-radius:3px;" type="text" class="table-filter" data-table="order-table" placeholder="Search"/>
+    </div>
     </div>
     <!-- <div class="d-xl-flex justify-content-xl-end"><button class="btn btn-primary border rounded border-dark d-xl-flex" type="button" style="margin: 20px;background-color: rgb(0,0,0);color: rgb(255,255,255);font-weight: bold;">Submit</button></div> -->
     <script src="assets/js/jquery.min.js"></script>
